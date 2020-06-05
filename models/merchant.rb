@@ -9,6 +9,6 @@ class Merchant
         @name = options['name']
         @active = options['active']
         @id = options['id'].to_i if options['id']
-    end 
+    end
 
 end
