@@ -38,6 +38,12 @@ class Transaction
         SqlRunner.run(sql, values)
     end
 
+    def self.all()
+        sql = "SELECT * FROM transactions"
+        transactions = SqlRunner.run(sql)
+        return Transaction.map_items(transactions)
+    end
+
     def self.map_items(transaction_data)
         result = transaction_data.map { |transaction| Transaction.new(transaction)}
         return result
