@@ -11,5 +11,4 @@ class Transaction
         @tag_id = options['tag_id'].to_i
     end
 
-
 end
