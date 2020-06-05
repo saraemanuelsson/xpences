@@ -4,6 +4,7 @@ require_relative('./models/tag')
 require_relative('./models/transaction')
 
 Merchant.delete_all()
+Tag.delete_all()
 
 tesco = Merchant.new('name' => 'Tesco', 'active' => 1)
 chanter = Merchant.new('name' => 'The Chanter', 'active' => 1)
