@@ -15,5 +15,6 @@
             <td><%=Merchant.find_by_id(transaction.merchant_id).name%></td>
             <td><%=Tag.find_by_id(transaction.tag_id).category%></td>
             <td>£<%=(transaction.amount.to_f / 100).round(2)%></td>
-        </tr>
+            <td><button><a href='/xpences/expenses/:id/edit-expense'>Edit</a></button>
         <% end %>
+        </tr>
