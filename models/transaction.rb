@@ -17,7 +17,8 @@ class Transaction
         VALUES
         ( $1, $2, $3 )
         RETURNING id"
-        values = [@amount, @merchant_id, @tag_id]
+        amount = @amount.to_i * 100
+        values = [amount, @merchant_id, @tag_id]
         id = SqlRunner.run(sql, values)[0]['id']
         @id = id.to_i
     end
