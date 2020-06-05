@@ -5,7 +5,19 @@
             <title>Xpences</title>
         </head>
         <body id="top">
-            <header></header>
+            <header>
+                <img/>
+                <div id="global nav">
+                    <button>Menu</button>
+                        <a href='/xpences'>Home</a>
+                        <a href='/xpences/add-expense'>Add Expense</a>
+                        <a href='/xpences/expenses'>Expenses</a>
+                    <button>Settings</button>
+                        <a href='/xpences/user-settings'>User Settings</a>
+                        <a href='/xpences/merchants'>Merchants</a>
+                        <a href='/xpences/tags'>Tags</a>
+                </div>
+            </header>
                 <%= yield %>
         </body>
     </html>
