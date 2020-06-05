@@ -39,4 +39,14 @@ class Tag
         SqlRunner.run(sql, values)
     end
 
+    def self.map_items(tag_data)
+        result = tag_data.map { |tag| Tag.new(tag)}
+        return result
+    end
+
+    def self.map_item(tag_data)
+        result = Tag.map_items(tag_data)
+        return result.first
+    end
+
 end
