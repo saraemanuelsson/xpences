@@ -41,7 +41,8 @@ class Transaction
 
     def self.total_spent(transactions)
         total = transactions.reduce(0) { |running_total, transaction| running_total + transaction.amount.to_i }
-        return total
+        gbp_amount = total.to_f/100.00
+        return gbp_amount
     end
 
     def self.find_by_id(id)

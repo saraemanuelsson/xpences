@@ -12,18 +12,19 @@ get '/xpences' do
     erb( :home )
 end
 
-get '/add-expense' do
+get '/xpences/add-expense' do
     @merchants = Merchant.all()
     @tags = Tag.all()
     erb( :new_expense )
 end
 
-get '/expenses' do
+get '/xpences/expenses' do
+    @transactions = Transaction.all()
     erb( :expenses )
 end
 
 post '/xpences' do
     expense = Transaction.new(params)
     expense.save()
-    erb( :expenses )
+    redirect( :expenses )
 end
