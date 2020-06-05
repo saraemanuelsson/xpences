@@ -11,4 +11,15 @@ class Merchant
         @id = options['id'].to_i if options['id']
     end
 
+    def save()
+        sql = "INSERT INTO merchants
+        ( name, active )
+        VALUES
+        ( $1, $2 )
+        RETURNING id"
+        values = [@name, @active]
+        id = SqlRunner.run(sql, values)[0]['id']
+        @id = id.to_i
+    end
+
 end

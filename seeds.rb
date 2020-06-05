@@ -3,20 +3,20 @@ require_relative('./models/merchant')
 require_relative('./models/tag')
 require_relative('./models/transaction')
 
-tesco = Merchant.new('name' => 'Tesco', 'active' => true)
-chanter = Merchant.new('name' => 'The Chanter', 'active' => true)
-amazon = Merchant.new('name' => 'Amazon', 'active' => true)
-virgin = Merchant.new('name' => 'Virgin Media', 'active' => true)
+tesco = Merchant.new('name' => 'Tesco', 'active' => 1)
+chanter = Merchant.new('name' => 'The Chanter', 'active' => 1)
+amazon = Merchant.new('name' => 'Amazon', 'active' => 1)
+virgin = Merchant.new('name' => 'Virgin Media', 'active' => 1)
 
 tesco.save()
 chanter.save()
 amazon.save()
 virgin.save()
 
-groceries = Tag.new('category' => 'Groceries', 'colour' => '#D90368', 'active' => true)
-fun = Tag.new('category' => 'Fun', 'colour' => '#F75C03', 'active' => true)
-education = Tag.new('category' => 'Education', 'colour' => '#820263', 'active' => true)
-bills = Tag.new('category' => 'Bills', 'colour' => '#291720', 'active' => true)
+groceries = Tag.new('category' => 'Groceries', 'colour' => '#D90368', 'active' => 1)
+fun = Tag.new('category' => 'Fun', 'colour' => '#F75C03', 'active' => 1)
+education = Tag.new('category' => 'Education', 'colour' => '#820263', 'active' => 1)
+bills = Tag.new('category' => 'Bills', 'colour' => '#291720', 'active' => 1)
 
 groceries.save()
 fun.save()
@@ -34,3 +34,6 @@ transaction2.save()
 transaction3.save()
 transaction4.save()
 transaction5.save()
+
+binding.pry
+nil
