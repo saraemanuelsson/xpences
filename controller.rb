@@ -5,6 +5,7 @@ require_relative('./models/merchant')
 require_relative('./models/tag')
 require_relative('./models/transaction')
 also_reload('./models/*')
+require('pry')
 
 get '/xpences' do
     @user = { 'first_name' => 'Anna', 'last_name' => 'Smith', 'age' => 21}
