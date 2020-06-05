@@ -38,6 +38,16 @@ class Merchant
         SqlRunner.run(sql, values)
     end
 
+    def transactions()
+        sql = "SELECT transactions.* FROM transactions
+        INNER JOIN merchants
+        ON merchants.id = transactions.merchant_id
+        WHERE merchants.id = $1"
+        values = [@id]
+        transactions = SqlRunner.run(sql, values)
+        return Transaction.map_items(transactions)
+    end
+
     def self.all()
         sql = "SELECT * FROM merchants"
         merchants = SqlRunner.run(sql)
