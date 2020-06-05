@@ -17,7 +17,7 @@ CREATE TABLE tags (
 
 CREATE TABLE transactions (
     id SERIAL PRIMARY KEY,
-    amount REAL,
+    amount INT,
     merchant_id INT REFERENCES merchants(id) ON DELETE SET NULL,
     tag_id INT REFERENCES tags(id) ON DELETE SET NULL
 );
