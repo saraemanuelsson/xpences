@@ -38,4 +38,14 @@ class Merchant
         SqlRunner.run(sql, values)
     end
 
+    def self.map_items(merchant_data)
+        result = merchant_data.map { |merchant| Merchant.new(merchant)}
+        return result
+    end
+
+    def self.map_item(merchant_data)
+        result = Merchant.map_items(merchant_data)
+        return result.first
+    end
+
 end
