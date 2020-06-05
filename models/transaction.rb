@@ -38,4 +38,14 @@ class Transaction
         SqlRunner.run(sql, values)
     end
 
+    def self.map_items(transaction_data)
+        result = transaction_data.map { |transaction| Transaction.new(transaction)}
+        return result
+    end
+
+    def self.map_item(transaction_data)
+        result = Transaction.map_items(transaction_data)
+        return result.first
+    end
+
 end
