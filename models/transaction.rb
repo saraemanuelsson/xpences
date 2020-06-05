@@ -38,8 +38,7 @@ class Transaction
         SqlRunner.run(sql, values)
     end
 
-    def self.total_spent()
-        transactions = Transaction.all
+    def self.total_spent(transactions)
         total = transactions.reduce(0) { |running_total, transaction| running_total + transaction.amount.to_i }
         return total
     end
