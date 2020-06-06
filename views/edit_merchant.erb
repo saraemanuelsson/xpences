@@ -1,0 +1,25 @@
+<h2>Edit Merchant</h2>
+
+<form method="post" action="/merchant/<%= @merchant.id %>">
+
+    <div class="form-element">
+        <label for="name-field">Name:</label>
+        <input
+        type="text"
+        name="name"
+        id="name-field"
+        value=<%= @merchant.name %>
+        />
+    </div>
+
+    <div class="form-element">
+        <label for="active-status">Status:</label>
+        <select name="active" id="status-select">
+            <option value="t">Active</option>
+            <option value="f">Inactive</option>
+        </select>
+    </div>
+    
+    <input type="submit" value="Save Changes">
+
+</form>

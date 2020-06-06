@@ -2,12 +2,20 @@
 
 <form method="post" action="/merchants">
 
-    <div class='form-element'>
-        <label for='name-field'>Name:</label>
+    <div class="form-element">
+        <label for="name-field">Name:</label>
         <input
-        type='text'
-        name='name'
-        id='name-field'
+        type="text"
+        name="name"
+        id="name-field"
+        />
+
+        <label hidden for="active-status"></label>
+        <input hidden
+        type="number"
+        name="active"
+        id="active-status"
+        value=<%=1%>
         />
         
         <input type="submit" value="Save">

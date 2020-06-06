@@ -7,7 +7,7 @@ class Merchant
 
     def initialize(options)
         @name = options['name']
-        @active = 1
+        @active = options['active'].to_i
         @id = options['id'].to_i if options['id']
     end
 
