@@ -1,0 +1,30 @@
+<h2>Create Tag</h2>
+
+<form method="post" action="/tags">
+
+    <div class="form-element">
+        <label for="category-field">Category:</label>
+        <input
+        type="text"
+        name="category"
+        id="category-field"
+        />
+
+        <label for="colour-field">Colour:</label>
+        <input
+        type="text"
+        name="colour"
+        id="colour-field"
+        />
+
+        <label hidden for="active-status"></label>
+        <input hidden
+        type="number"
+        name="active"
+        id="active-status"
+        value=<%=1%>
+        />
+        
+        <input type="submit" value="Save">
+
+</form>
