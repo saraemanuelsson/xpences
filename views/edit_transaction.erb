@@ -1,0 +1,35 @@
+<form method="post" action="/xpences/expenses/<%= @transaction.id %>">
+
+            <div class='form-element'>
+                    <label for="merchant-select">Merchant:</label>
+                    <select name="merchant_id" id="merchant-select">
+                        <option selected disabled>Please select a merchant</option>
+                        <% @merchants.each do |merchant| %>
+                            <option value=<%=merchant.id%>><%=merchant.name%></option>
+                        <% end %>
+                    </select>
+                </div>
+
+                <div class='form-element'>
+                    <label for="amount">Amount:</label>
+                    <input
+                    type="number"
+                    min="0"
+                    value="0.00"
+                    step="0.01"
+                    name="amount"
+                    id="amount"
+                    />
+                </div>
+
+                <div class='form-element'>
+                    <label for="tag-select">Tag:</label>
+                    <select name="tag_id" id="tag-select">
+                        <option selected disabled>Please select a tag</option>
+                        <% @tags.each do |tag| %>
+                            <option value=<%=tag.id%>><%=tag.category%></option>
+                        <% end %>
+                    </select>
+                </div>
+
+                <input type="submit" value="Add Transaction">
