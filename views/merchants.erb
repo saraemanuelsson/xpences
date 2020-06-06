@@ -1,0 +1,16 @@
+<h1>Merchants</h1>
+
+<button><a href="/merchants/new">Create Merchant</a></button>
+
+<table>
+    <tr>
+        <th>Name</th>
+    </tr>
+    <% @merchants.each do |merchant| unless merchant.active == 0 %>
+    <tr>
+        <td><%=merchant.name%></td>
+        <td><button><a href="/merchants/<%= merchant.id %>/edit">Edit</a></button>
+        <% end %>
+    <% end %>
+    </tr>
+</table>
