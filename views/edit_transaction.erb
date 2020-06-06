@@ -1,39 +1,47 @@
-<form method="post" action="/expenses/<%= @transaction.id %>/edit-expense">
+<h1>Edit Expense</h1>
 
+<form method="post" action="/expenses/<%= @transaction.id %>/edit">
 
+    <div class='form-element'>
+        <label for="merchant-select">Merchant:</label>
+        <select name="merchant_id" id="merchant-select">
+            <option value=<%=@transaction.merchant_id%>><%=(Merchant.find_by_id(@transaction.merchant_id)).name%></option>
+            <% @merchants.each do |merchant| unless @transaction.merchant_id == merchant.id %>
+            <option value=<%=merchant.id%>><%= merchant.name %></option>
+            <% end %>
+            <% end %>
+        </select>
+    </div>
 
-            <div class='form-element'>
-                    <label for="merchant-select">Merchant:</label>
-                    <select name="merchant_id" id="merchant-select">
-                        <option value=<%@merchant.id%>><%=@merchant.name%></option>
-                        <% @merchants.each do |merchant| unless merchant.id == @merchant.id %>
-                            <option value=<%=merchant.id%>><%=merchant.name%></option>
-                            <% end %>
-                        <% end %>
-                    </select>
-                </div>
+    <div class='form-element'>
+        <label for="amount">Amount:</label>
+        <input
+        type="number"
+        min="0"
+        value=<%=(@transaction.amount().to_f/100).round(2)%>
+        step="0.01"
+        name="amount"
+        id="amount"
+        />
+    </div>
 
-                <div class='form-element'>
-                    <label for="amount">Amount:</label>
-                    <input
-                    type="number"
-                    min="0"
-                    value=<%@transaction.amount%><%=(@transaction.amount.to_f/100).round(2)%>
-                    step="0.01"
-                    name="amount"
-                    id="amount"
-                    />
-                </div>
+    <div class='form-element'>
+        <label for="tag-select">Tag:</label>
+        <select name="tag_id" id="tag-select">
+            <option value=<%=@transaction.tag_id%>><%=(Tag.find_by_id(@transaction.tag_id)).category%></option>
+            <% @tags.each do |tag| unless @transaction.tag_id == tag.id %>
+            <option value=<%=tag.id%>><%= tag.category %></option>
+            <% end %>
+            <% end %>
+        </select>
+    </div>
 
-                <div class='form-element'>
-                    <label for="tag-select">Tag:</label>
-                    <select name="tag_id" id="tag-select">
-                        <option value=<%@tag.id%>><%=@tag.category%></option>
-                        <% @tags.each do |tag| unless tag.id == @tag.id %>
-                            <option value=<%=tag.id%>><%=tag.category%></option>
-                            <% end %>
-                        <% end %>
-                    </select>
-                </div>
+    <input type="submit" value="Save Changes">
+</form>
 
-                <input type="submit" value="Edit Transaction">
+<p>To delete expense: 
+    <form method="post" action="/expenses/<%=@transaction.id%>/delete">
+        <input type="submit" value="Delete"/>
+    </form>
+</p>
+

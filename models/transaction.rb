@@ -30,6 +30,7 @@ class Transaction
         =
         ( $1, $2, $3)
         WHERE id = $4"
+        @amount = (@amount.to_f * 100.00).to_i
         values = [@amount, @merchant_id, @tag_id, @id]
         SqlRunner.run(sql, values)
     end
