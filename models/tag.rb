@@ -8,7 +8,7 @@ class Tag
     def initialize(options)
         @category = options['category']
         @colour = options['colour']
-        @active = options['active']
+        @active = 1
         @id = options['id'].to_i if options['id']
     end
 
