@@ -15,8 +15,8 @@
     <div class="form-element">
         <label for="active-status">Status:</label>
         <select name="active" id="status-select">
-            <option value="t">Active</option>
-            <option value="f">Inactive</option>
+            <option value=1 <%= "selected" if @merchant.active == 1 %>>Active</option>
+            <option value=0 <%= "selected" if @merchant.active == 0 %>>Inactive</option>
         </select>
     </div>
     

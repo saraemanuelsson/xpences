@@ -24,6 +24,7 @@ end
 
 get '/tags/:id/edit' do
     @tag = Tag.find_by_id(params[:id])
+    # binding.pry()
     erb( :"tags/edit" )
 end
 

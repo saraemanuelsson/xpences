@@ -1,0 +1,35 @@
+<h2>Edit Tag</h2>
+
+<form method="post" action="/tags/<%= @tag.id %>">
+
+    <div class="form-element">
+        <label for="category-field">Category:</label>
+        <input
+        type="text"
+        name="category"
+        id="category-field"
+        value=<%= @tag.category %>
+        />
+    </div>
+
+    <div class="form-element">
+        <label for="colour-field">Colour:</label>
+        <input
+        type="color"
+        name="colour"
+        id="colour-field"
+        value=<%= @tag.colour %>
+        />
+    </div>
+
+    <div class="form-element">
+        <label for="active-status">Status:</label>
+        <select name="active" id="status-select">
+            <option value=1 <%= "selected" if @tag.active == 1 %>>Active</option>
+            <option value=0 <%= "selected" if @tag.active == 0 %>>Inactive</option>
+        </select>
+    </div>
+    
+    <input type="submit" value="Save Changes">
+
+</form>
