@@ -6,8 +6,9 @@
         <label for="merchant-select">Merchant:</label>
         <select name="merchant_id" id="merchant-select">
             <option selected disabled>Please select a merchant</option>
-            <% @merchants.each do |merchant| %>
+            <% @merchants.each do |merchant| unless merchant.active == 0 %>
                 <option value=<%=merchant.id%>><%=merchant.name%></option>
+                <% end %>
             <% end %>
         </select>
     </div>
@@ -28,8 +29,9 @@
         <label for="tag-select">Tag:</label>
         <select name="tag_id" id="tag-select">
             <option selected disabled>Please select a tag</option>
-            <% @tags.each do |tag| %>
+            <% @tags.each do |tag| unless tag.active == 0 %>
                 <option value=<%=tag.id%>><%=tag.category%></option>
+                <% end  %>
             <% end %>
         </select>
     </div>
