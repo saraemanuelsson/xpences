@@ -1,11 +1,14 @@
-<form method="post" action="/xpences/expenses/<%= @transaction.id %>">
+<form method="post" action="/expenses/<%= @transaction.id %>/edit-expense">
+
+
 
             <div class='form-element'>
                     <label for="merchant-select">Merchant:</label>
                     <select name="merchant_id" id="merchant-select">
-                        <option selected disabled>Please select a merchant</option>
-                        <% @merchants.each do |merchant| %>
+                        <option value=<%@merchant.id%>><%=@merchant.name%></option>
+                        <% @merchants.each do |merchant| unless merchant.id == @merchant.id %>
                             <option value=<%=merchant.id%>><%=merchant.name%></option>
+                            <% end %>
                         <% end %>
                     </select>
                 </div>
@@ -15,7 +18,7 @@
                     <input
                     type="number"
                     min="0"
-                    value="0.00"
+                    value=<%@transaction.amount%><%=(@transaction.amount.to_f/100).round(2)%>
                     step="0.01"
                     name="amount"
                     id="amount"
@@ -25,11 +28,12 @@
                 <div class='form-element'>
                     <label for="tag-select">Tag:</label>
                     <select name="tag_id" id="tag-select">
-                        <option selected disabled>Please select a tag</option>
-                        <% @tags.each do |tag| %>
+                        <option value=<%@tag.id%>><%=@tag.category%></option>
+                        <% @tags.each do |tag| unless tag.id == @tag.id %>
                             <option value=<%=tag.id%>><%=tag.category%></option>
+                            <% end %>
                         <% end %>
                     </select>
                 </div>
 
-                <input type="submit" value="Add Transaction">
+                <input type="submit" value="Edit Transaction">

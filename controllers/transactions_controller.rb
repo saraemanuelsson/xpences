@@ -26,6 +26,10 @@ end
 
 get '/expenses/:id/edit-expense' do
     @transaction = Transaction.find_by_id(params[:id])
-    erb( :edit_transaction)
+    @merchant = Merchant.find_by_id(@transaction.merchant_id)
+    @tag = Tag.find_by_id(@transaction.tag_id)
+    @merchants = Merchant.all()
+    @tags = Tag.all()
+    erb( :edit_transaction )
 end
 

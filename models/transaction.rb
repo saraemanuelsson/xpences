@@ -9,6 +9,7 @@ class Transaction
         @amount = options['amount']
         @merchant_id = options['merchant_id'].to_i
         @tag_id = options['tag_id'].to_i
+        @id = options['id'].to_i if options['id']
     end
 
     def save()
