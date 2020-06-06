@@ -8,7 +8,7 @@ also_reload('../models/*')
 require('pry')
 
 get '/tags' do
-    @Tags = Tag.all()
+    @tags = Tag.all()
     erb( :"tags/index" )
 end
 
