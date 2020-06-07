@@ -16,9 +16,10 @@ end
 
 get '/expenses' do
     @expenses = Expense.sort_by_date()
-    @total = Expense.total_spent(@expenses)
-    monthly_expenses = Expense.find_expenses_for_current_month()
-    @month_total = Expense.total_spent(monthly_expenses)
+    current_date = Date.today
+    first_day_of_month = Date.new(current_date.year, current_date.month, 1)
+    expenses_this_month = Expense.find_expenses_for_given_period(first_day_of_month, current_date)
+    @month_total = Expense.total_spent(expenses_this_month)
     erb( :"expenses/index" )
 end
 

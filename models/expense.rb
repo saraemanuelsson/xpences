@@ -48,10 +48,11 @@ class Expense
         return gbp_amount
     end
 
-    def self.find_expenses_for_current_month()
-        sql = "SELECT * FROM expenses WHERE date >= date_trunc('month', CURRENT_DATE)"
-        expenses_for_month = SqlRunner.run(sql)
-        return Expense.map_items(expenses_for_month)
+    def self.find_expenses_for_given_period(start_date, end_date)
+        sql = "SELECT * FROM expenses WHERE date BETWEEN $1 AND $2"
+        values = [start_date, end_date]
+        expenses_for_period = SqlRunner.run(sql, values)
+        return Expense.map_items(expenses_for_period)
     end
 
     def self.sort_by_date()
