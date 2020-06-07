@@ -15,7 +15,7 @@ get '/expenses/add' do
 end
 
 get '/expenses' do
-    @expenses = Expense.sort_by_date()
+    @expenses = Expense.all()
     @end_date = Date.today
     @start_date = Date.new(@end_date.year, @end_date.month, 1)
     expenses_this_month = Expense.find_expenses_for_given_period(@start_date, @end_date)

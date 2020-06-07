@@ -49,16 +49,10 @@ class Expense
     end
 
     def self.find_expenses_for_given_period(start_date, end_date)
-        sql = "SELECT * FROM expenses WHERE date BETWEEN $1 AND $2"
+        sql = "SELECT * FROM expenses WHERE date BETWEEN $1 AND $2 ORDER BY date DESC"
         values = [start_date, end_date]
         expenses_for_period = SqlRunner.run(sql, values)
         return Expense.map_items(expenses_for_period)
-    end
-
-    def self.sort_by_date()
-        sql = "SELECT * FROM expenses ORDER BY date DESC"
-        expenses_by_date = SqlRunner.run(sql)
-        return Expense.map_items(expenses_by_date)
     end
 
     def self.find_by_id(id)
@@ -69,7 +63,7 @@ class Expense
     end
 
     def self.all()
-        sql = "SELECT * FROM expenses"
+        sql = "SELECT * FROM expenses ORDER BY date DESC"
         expenses = SqlRunner.run(sql)
         return Expense.map_items(expenses)
     end
