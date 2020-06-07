@@ -16,9 +16,9 @@ end
 
 get '/expenses' do
     @expenses = Expense.sort_by_date()
-    @current_date = Date.today
-    @first_day_of_month = Date.new(@current_date.year, @current_date.month, 1)
-    expenses_this_month = Expense.find_expenses_for_given_period(@first_day_of_month, @current_date)
+    @end_date = Date.today
+    @start_date = Date.new(@end_date.year, @end_date.month, 1)
+    expenses_this_month = Expense.find_expenses_for_given_period(@start_date, @end_date)
     @month_total = Expense.total_spent(expenses_this_month)
     erb( :"expenses/index" )
 end
@@ -48,5 +48,18 @@ post '/expenses/:id/delete' do
     redirect( '/expenses' )
 end
 
+post '/expenses/dates' do
+    start_date = params['start-date']
+    end_date = params['end-date']
+    redirect( "/expenses/dates/#{start_date}/#{end_date}")
+end
+
+get '/expenses/dates/:start_date/:end_date' do
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+    @expenses = Expense.find_expenses_for_given_period(@start_date, @end_date)
+    @period_total = Expense.total_spent(@expenses)
+    erb( :"expenses/dates")
+end
 
 
