@@ -8,6 +8,11 @@ also_reload('../models/*')
 require('pry')
 
 get '/merchants' do
+    @merchants = Merchant.active()
+    erb( :"merchants/index" )
+end
+
+get '/merchants/all' do
     @merchants = Merchant.all()
     erb( :"merchants/index" )
 end

@@ -4,16 +4,15 @@
 
 
 <div>
-    <button><a href="/merchants/index/all">View Deactivated</a></button>
+    <button><a href="/merchants/all">View Deactivated</a></button>
     <table>
         <tr>
             <th>Name</th>
         </tr>
-        <% @merchants.each do |merchant| unless merchant.active == 0 %>
+        <% @merchants.each do |merchant|%>
         <tr>
-            <td><%=merchant.name%></td>
+            <td <% if merchant.active == 0%> class='deactived'<% end %>><%=merchant.name%></td>
             <td><button><a href="/merchants/<%= merchant.id %>/edit">Edit</a></button>
-            <% end %>
         <% end %>
         </tr>
     </table>
