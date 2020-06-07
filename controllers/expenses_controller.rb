@@ -18,8 +18,8 @@ get '/expenses' do
     @expenses = Expense.all()
     @end_date = Date.today
     @start_date = Date.new(@end_date.year, @end_date.month, 1)
-    expenses_this_month = Expense.find_expenses_for_given_period(@start_date, @end_date)
-    @month_total = Expense.total_spent(expenses_this_month)
+    @expenses = Expense.find_expenses_for_given_period(@start_date, @end_date)
+    @month_total = Expense.total_spent(@expenses)
     erb( :"expenses/index" )
 end
 
