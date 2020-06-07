@@ -18,6 +18,7 @@ CREATE TABLE tags (
 CREATE TABLE expenses (
     id SERIAL PRIMARY KEY,
     amount INT,
+    date DATE,
     merchant_id INT REFERENCES merchants(id) ON DELETE SET NULL,
     tag_id INT REFERENCES tags(id) ON DELETE SET NULL
 );

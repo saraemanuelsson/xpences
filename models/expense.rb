@@ -2,11 +2,12 @@ require_relative('../db/sql_runner')
 
 class Expense
 
-    attr_accessor :amount, :merchant_id, :tag_id
+    attr_accessor :amount, :merchant_id, :tag_id, :date
     attr_reader :id
 
     def initialize(options)
         @amount = options['amount']
+        @date = options['date']
         @merchant_id = options['merchant_id'].to_i
         @tag_id = options['tag_id'].to_i
         @id = options['id'].to_i if options['id']
@@ -14,24 +15,24 @@ class Expense
 
     def save()
         sql = "INSERT INTO expenses
-        ( amount, merchant_id, tag_id )
+        ( amount, date, merchant_id, tag_id )
         VALUES
-        ( $1, $2, $3 )
+        ( $1, $2, $3, $4 )
         RETURNING id"
         @amount = (@amount.to_f * 100.00).to_i
-        values = [@amount, @merchant_id, @tag_id]
+        values = [@amount, @date, @merchant_id, @tag_id]
         id = SqlRunner.run(sql, values)[0]['id']
         @id = id.to_i
     end
 
     def update()
         sql = "UPDATE expenses SET
-        ( amount, merchant_id, tag_id )
+        ( amount, date, merchant_id, tag_id )
         =
-        ( $1, $2, $3)
-        WHERE id = $4"
+        ( $1, $2, $3, $4)
+        WHERE id = $5"
         @amount = (@amount.to_f * 100.00).to_i
-        values = [@amount, @merchant_id, @tag_id, @id]
+        values = [@amount, @date, @merchant_id, @tag_id, @id]
         SqlRunner.run(sql, values)
     end
 
