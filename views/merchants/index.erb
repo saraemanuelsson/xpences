@@ -10,8 +10,8 @@
             <th>Name</th>
         </tr>
         <% @merchants.each do |merchant|%>
-        <tr>
-            <td <% if merchant.active == 0%> class='deactived'<% end %>><%=merchant.name%></td>
+        <tr <% if merchant.active == 0%> class='deactived'<% end %>>
+            <td><%=merchant.name%></td>
             <td><button><a href="/merchants/<%= merchant.id %>/edit">Edit</a></button>
         <% end %>
         </tr>

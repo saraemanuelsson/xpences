@@ -2,17 +2,19 @@
 
 <button><a href="/tags/new">Create Tag</a></button>
 
-<table>
-    <tr>
-        <th>Category</th>
-        <th>Colour</th>
-    </tr>
-    <% @tags.each do |tag| unless tag.active == 0 %>
-    <tr>
-        <td><%=tag.category%></td>
-        <td><%=tag.colour%></td>
-        <td><button><a href="/tags/<%= tag.id %>/edit">Edit</a></button>
+<div>
+    <button><a href="/tags/all">View Deactivated</a></button>
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Colour</th>
+        </tr>
+        <% @tags.each do |tag|%>
+        <tr <% if tag.active == 0%> class ='deactivated'<% end %>>
+            <td><%=tag.category%></td>
+            <td><%=tag.colour%></td>
+            <td><button><a href="/tags/<%= tag.id %>/edit">Edit</a></button>
         <% end %>
-    <% end %>
-    </tr>
-</table>
+        </tr>
+    </table>
+</div>

@@ -8,6 +8,11 @@ also_reload('../models/*')
 require('pry')
 
 get '/tags' do
+    @tags = Tag.active()
+    erb( :"tags/index" )
+end
+
+get '/tags/all' do
     @tags = Tag.all()
     erb( :"tags/index" )
 end
