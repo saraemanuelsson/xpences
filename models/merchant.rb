@@ -61,6 +61,13 @@ class Merchant
         return Merchant.map_items(merchants)
     end
 
+    def self.active()
+        sql = "SELECT * FROM merchants WHERE active = $1"
+        values = [1]
+        active_merchants = SqlRunner.run(sql, values)
+        return Merchant.map_items(active_merchants)
+    end
+
     def self.delete_all()
         sql = "DELETE FROM merchants"
         SqlRunner.run(sql)

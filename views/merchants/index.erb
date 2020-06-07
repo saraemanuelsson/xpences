@@ -2,15 +2,19 @@
 
 <button><a href="/merchants/new">Create Merchant</a></button>
 
-<table>
-    <tr>
-        <th>Name</th>
-    </tr>
-    <% @merchants.each do |merchant| unless merchant.active == 0 %>
-    <tr>
-        <td><%=merchant.name%></td>
-        <td><button><a href="/merchants/<%= merchant.id %>/edit">Edit</a></button>
+
+<div>
+    <button><a href="/merchants/index/all">View Deactivated</a></button>
+    <table>
+        <tr>
+            <th>Name</th>
+        </tr>
+        <% @merchants.each do |merchant| unless merchant.active == 0 %>
+        <tr>
+            <td><%=merchant.name%></td>
+            <td><button><a href="/merchants/<%= merchant.id %>/edit">Edit</a></button>
+            <% end %>
         <% end %>
-    <% end %>
-    </tr>
-</table>
+        </tr>
+    </table>
+</div>
