@@ -1,0 +1,20 @@
+<h1>Expenses</h1>
+
+<aside>
+<h2>Total Spent: £<%=Expense.total_spent(@expenses)%></h2>
+</aside>
+
+    <table>
+        <tr>
+            <th>Merchant</th>
+            <th>Category</th>
+            <th>Amount</th>
+        </tr>
+        <% @expenses.each do |expense| %>
+        <tr>
+            <td><%=Merchant.find_by_id(expense.merchant_id).name%></td>
+            <td><%=Tag.find_by_id(expense.tag_id).category%></td>
+            <td>£<%=(expense.amount.to_f / 100).round(2)%></td>
+            <td><button><a href="/expenses/<%= expense.id %>/edit">Edit</a></button>
+        <% end %>
+        </tr>

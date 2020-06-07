@@ -1,4 +1,4 @@
-DROP TABLE transactions;
+DROP TABLE expenses;
 DROP TABLE tags;
 DROP TABLE merchants;
 
@@ -15,7 +15,7 @@ CREATE TABLE tags (
     active BIT
 );
 
-CREATE TABLE transactions (
+CREATE TABLE expenses (
     id SERIAL PRIMARY KEY,
     amount INT,
     merchant_id INT REFERENCES merchants(id) ON DELETE SET NULL,

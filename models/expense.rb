@@ -1,6 +1,6 @@
 require_relative('../db/sql_runner')
 
-class Transaction
+class Expense
 
     attr_accessor :amount, :merchant_id, :tag_id
     attr_reader :id
@@ -13,7 +13,7 @@ class Transaction
     end
 
     def save()
-        sql = "INSERT INTO transactions
+        sql = "INSERT INTO expenses
         ( amount, merchant_id, tag_id )
         VALUES
         ( $1, $2, $3 )
@@ -25,7 +25,7 @@ class Transaction
     end
 
     def update()
-        sql = "UPDATE transactions SET
+        sql = "UPDATE expenses SET
         ( amount, merchant_id, tag_id )
         =
         ( $1, $2, $3)
@@ -36,42 +36,42 @@ class Transaction
     end
 
     def delete()
-        sql = "DELETE FROM transactions WHERE id = $1"
+        sql = "DELETE FROM expenses WHERE id = $1"
         values = [@id]
         SqlRunner.run(sql, values)
     end
 
-    def self.total_spent(transactions)
-        total = transactions.reduce(0) { |running_total, transaction| running_total + transaction.amount.to_i }
+    def self.total_spent(expenses)
+        total = expenses.reduce(0) { |running_total, expense| running_total + expense.amount.to_i }
         gbp_amount = total.to_f/100.00
         return gbp_amount
     end
 
     def self.find_by_id(id)
-        sql = "SELECT * FROM transactions WHERE id = $1"
+        sql = "SELECT * FROM expenses WHERE id = $1"
         values = [id]
-        transaction = SqlRunner.run(sql, values)
-        return Transaction.map_item(transaction)
+        expense = SqlRunner.run(sql, values)
+        return Expense.map_item(expense)
     end
 
     def self.all()
-        sql = "SELECT * FROM transactions"
-        transactions = SqlRunner.run(sql)
-        return Transaction.map_items(transactions)
+        sql = "SELECT * FROM expenses"
+        expenses = SqlRunner.run(sql)
+        return Expense.map_items(expenses)
     end
 
     def self.delete_all()
-        sql = "DELETE FROM transactions"
+        sql = "DELETE FROM expenses"
         SqlRunner.run(sql)
     end
 
-    def self.map_items(transaction_data)
-        result = transaction_data.map { |transaction| Transaction.new(transaction)}
+    def self.map_items(expense_data)
+        result = expense_data.map { |expense| Expense.new(expense)}
         return result
     end
 
-    def self.map_item(transaction_data)
-        result = Transaction.map_items(transaction_data)
+    def self.map_item(expense_data)
+        result = Expense.map_items(expense_data)
         return result.first
     end
 

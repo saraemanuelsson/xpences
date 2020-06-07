@@ -39,14 +39,14 @@ class Tag
         SqlRunner.run(sql, values)
     end
 
-    def transactions()
-        sql = "SELECT transactions.* FROM transactions
+    def expenses()
+        sql = "SELECT expenses.* FROM expenses
         INNER JOIN tags
-        ON tags.id = transactions.tag_id
+        ON tags.id = expenses.tag_id
         WHERE tags.id = $1"
         values = [@id]
-        transactions = SqlRunner.run(sql, values)
-        return Transaction.map_items(transactions)
+        expenses = SqlRunner.run(sql, values)
+        return Expense.map_items(expenses)
     end
 
     def self.find_by_id(id)
