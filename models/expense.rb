@@ -42,6 +42,12 @@ class Expense
         SqlRunner.run(sql, values)
     end
 
+    def self.sort_by_date()
+        sql = "SELECT * FROM expenses ORDER BY date"
+        expenses_by_date = SqlRunner.run(sql)
+        return Expense.map_items(expenses_by_date)
+    end
+
     def self.total_spent(expenses)
         total = expenses.reduce(0) { |running_total, expense| running_total + expense.amount.to_i }
         gbp_amount = total.to_f/100.00

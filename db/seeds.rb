@@ -27,7 +27,7 @@ fun.save()
 education.save()
 bills.save()
 
-expense1 = Expense.new('amount' => 15.98, 'date' => "2020-05-24", 'merchant_id' => tesco.id, 'tag_id' => groceries.id)
+expense1 = Expense.new('amount' => 15.98, 'date' => "2020-06-03", 'merchant_id' => tesco.id, 'tag_id' => groceries.id)
 expense2 = Expense.new('amount' => 32.75, "date" => "2020-05-25",'merchant_id' => chanter.id, 'tag_id' => fun.id)
 expense3 = Expense.new('amount' => 9.15, "date" => "2020-05-28", 'merchant_id' => amazon.id, 'tag_id' => education.id)
 expense4 = Expense.new('amount' => 45.00, "date" => "2020-06-01", 'merchant_id' => virgin.id, 'tag_id' => bills.id)

@@ -14,7 +14,7 @@ get '/expenses/add' do
 end
 
 get '/expenses' do
-    @expenses = Expense.all()
+    @expenses = Expense.sort_by_date()
     erb( :"expenses/index" )
 end
 
