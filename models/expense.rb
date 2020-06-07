@@ -42,16 +42,22 @@ class Expense
         SqlRunner.run(sql, values)
     end
 
-    def self.sort_by_date()
-        sql = "SELECT * FROM expenses ORDER BY date"
-        expenses_by_date = SqlRunner.run(sql)
-        return Expense.map_items(expenses_by_date)
-    end
-
     def self.total_spent(expenses)
         total = expenses.reduce(0) { |running_total, expense| running_total + expense.amount.to_i }
         gbp_amount = total.to_f/100.00
         return gbp_amount
+    end
+
+    def self.find_expenses_for_current_month()
+        sql = "SELECT * FROM expenses WHERE date >= date_trunc('month', CURRENT_DATE)"
+        expenses_for_month = SqlRunner.run(sql)
+        return Expense.map_items(expenses_for_month)
+    end
+
+    def self.sort_by_date()
+        sql = "SELECT * FROM expenses ORDER BY date DESC"
+        expenses_by_date = SqlRunner.run(sql)
+        return Expense.map_items(expenses_by_date)
     end
 
     def self.find_by_id(id)

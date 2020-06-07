@@ -1,8 +1,9 @@
 <h1>Expenses</h1>
 
-<aside>
-<h2>Total Spent: £<%=Expense.total_spent(@expenses)%></h2>
-</aside>
+    <aside>
+    <h2>Total Spent: £<%=@total%></h2>
+    <h2>Spent This Month: £<%=@month_total%></h2>
+    </aside>
 
     <table>
         <tr>
@@ -20,3 +21,4 @@
             <td><button><a href="/expenses/<%= expense.id %>/edit">Edit</a></button>
         <% end %>
         </tr>
+    </table>
