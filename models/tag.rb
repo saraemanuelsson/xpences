@@ -62,6 +62,13 @@ class Tag
         return Tag.map_items(tags)
     end
 
+    def self.active()
+        sql = "SELECT * FROM tags WHERE active = $1"
+        values = [1]
+        active_tags = SqlRunner.run(sql, values)
+        return Tag.map_items(active_tags)
+    end
+
     def self.delete_all()
         sql = "DELETE FROM tags"
         SqlRunner.run(sql)
