@@ -4,7 +4,23 @@
     <h2>Spent This Month: £<%=@month_total%></h2>
     </aside>
 
-
+    <div>
+        <form method="get" action="/expenses/:start-date/:end-date">
+        <label for="start-date">Start date:</label>
+            <input 
+            type="date" 
+            name="start-date" 
+            value=<%=@first_day_of_month%>
+            />
+        <label for="end-date">End date:</label>
+        <input 
+        type="date" 
+        name="end-date" 
+        value=<%=@current_date%>
+        />
+        <input type="submit" value="Select dates"/>
+        </form>
+    </div>
 
     <table>
         <tr>
