@@ -27,7 +27,17 @@
     </div>
 
     <div class='form-element'>
-        <label for="tag-select">Tag:</label>
+        <label for="date-select">Date:</label>
+        <input
+        type="date"
+        name="date"
+        value=<%= @expense.date %>
+        id="date-select"
+        />
+    </div>
+
+    <div class='form-element'>
+        <label for="tag-select">Category:</label>
         <select name="tag_id" id="tag-select">
             <option value=<%=@expense.tag_id%>><%=(Tag.find_by_id(@expense.tag_id)).category%></option>
             <% @tags.each do |tag| unless @expense.tag_id == tag.id %>
