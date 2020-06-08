@@ -12,7 +12,7 @@
         <% @tags.each do |tag|%>
         <tr <% if tag.active == 0%> class ='deactivated'<% end %>>
             <td><%=tag.category%></td>
-            <td><%=tag.colour%></td>
+            <td style="background-color: <%=tag.colour%>; border-radius: 10px; "></td>
             <td><button><a href="/tags/<%= tag.id %>/edit">Edit</a></button>
         <% end %>
         </tr>
