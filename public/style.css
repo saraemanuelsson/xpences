@@ -1,0 +1,46 @@
+
+html {
+    background: url("110291-achievement_bar_business_chart_coin_coins_diagram.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+#category_heading {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font: 50px;
+    color: black;
+    text-align: top;
+}
+
+input[type=radio] + label[class=colourbox] {
+    border-color: white;
+    border-style: solid;
+    border-radius: 25px;
+    height: 75px;
+    width: 75px;
+    display: inline-block;
+    padding: 5px;
+}
+
+input[type=radio]:checked + label[class=colourbox] {
+    border-color:black;
+    border-style: solid;
+    border-radius: 25px;
+    height: 75px;
+    width: 75px;
+    display: inline-block;
+    padding: 5px;
+}
+
+label[class=colourbox] {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font: 15px;
+    color: white;
+    text-align: center;
+}
