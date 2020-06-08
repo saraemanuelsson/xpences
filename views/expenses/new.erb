@@ -36,7 +36,7 @@
     </div>
 
     <div class="form-element">
-        <label id="category_heading" for="tag-select">Category:</label>
+        <label class="category_heading" for="tag-select">Category:</label>
         <% @tags.each do |tag| unless tag.active == 0 %>
         <input id=<%=tag.colour%>
         type="radio"

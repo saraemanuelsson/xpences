@@ -19,7 +19,7 @@
         <input
         type="number"
         min="0"
-        value=<%=(@expense.amount().to_f/100).round(2)%>
+        value=<%='%.2f' % (@expense.amount.to_f / 100)%>
         step="0.01"
         name="amount"
         id="amount"
@@ -36,15 +36,19 @@
         />
     </div>
 
-    <div class='form-element'>
-        <label for="tag-select">Category:</label>
-        <select name="tag_id" id="tag-select">
-            <option value=<%=@expense.tag_id%>><%=(Tag.find_by_id(@expense.tag_id)).category%></option>
-            <% @tags.each do |tag| unless @expense.tag_id == tag.id %>
-            <option value=<%=tag.id%>><%= tag.category %></option>
-            <% end %>
-            <% end %>
-        </select>
+    <div class="form-element">
+        <label class="category_heading_edit" for="tag-select">Category:</label>
+        <% @tags.each do |tag| unless tag.active == 0 %>
+        <input id="edit<%=tag.colour%>"
+        type="radio"
+        name="tag_id"
+        id="tag-select"
+        value="<%=tag.id%>"
+        <%= "checked" if @expense.tag_id == tag.id %>
+        />
+        <label class="colourbox" for="edit<%=tag.colour%>" style="background-color: <%=tag.colour%>;"><%=tag.category%></label>
+        <% end %>
+        <% end %>
     </div>
 
     <input type="submit" value="Save Changes">
