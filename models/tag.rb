@@ -56,6 +56,13 @@ class Tag
         return Tag.map_item(tag)
     end
 
+    def self.find_by_category(category)
+        sql = "SELECT * FROM tags WHERE category = $1"
+        values = [category]
+        tag = SqlRunner.run(sql, values)
+        return Tag.map_item(tag)
+    end
+
     def self.all()
         sql = "SELECT * FROM tags"
         tags = SqlRunner.run(sql)

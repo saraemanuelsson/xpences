@@ -12,13 +12,24 @@
         name="start-date" 
         value=<%=@start_date%>
         />
+
         <label for="end-date">End date:</label>
         <input 
         type="date" 
         name="end-date" 
         value=<%=@end_date%>
         />
-        <input type="submit" value="Select dates"/>
+
+        <label for="category">Category</label>
+        <select name="criteria" id="category">
+            <option value="all">All</option>
+            <% @tags.each do |tag| unless tag.active == 0 %>
+            <option value=<%=tag.category%>><%= tag.category %></option>
+            <% end %>
+            <% end %>
+        </select>
+        
+        <input type="submit" value="Select"/>
         </form>
     </div>
 

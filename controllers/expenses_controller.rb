@@ -20,6 +20,7 @@ get '/expenses' do
     @start_date = Date.new(@end_date.year, @end_date.month, 1)
     @expenses = Expense.find_expenses_for_given_period(@start_date, @end_date)
     @month_total = Expense.total_spent(@expenses)
+    @tags = Tag.all()
     erb( :"expenses/index" )
 end
 
@@ -51,13 +52,23 @@ end
 post '/expenses/dates' do
     start_date = params['start-date']
     end_date = params['end-date']
-    redirect( "/expenses/dates/#{start_date}/#{end_date}")
+    criteria = params['criteria']
+    redirect( "/expenses/dates/#{start_date}/#{end_date}/#{criteria}")
 end
 
-get '/expenses/dates/:start_date/:end_date' do
+get "/expenses/dates/:start_date/:end_date/:criteria" do
     @start_date = params[:start_date]
     @end_date = params[:end_date]
-    @expenses = Expense.find_expenses_for_given_period(@start_date, @end_date)
+    @criteria = params[:criteria]
+    @tags = Tag.all()
+    expenses_for_period = Expense.find_expenses_for_given_period(@start_date, @end_date)
+    @expenses = []
+        if @criteria != "all"
+            expenses_with_tag = Expense.expenses_with_given_tag(expenses_for_period, Tag.find_by_category(@criteria).id)
+            expenses_with_tag.each {|expense| @expenses.push(expense)}   
+        else
+            expenses_for_period.each {|expense| @expenses.push(expense)}
+        end
     @period_total = Expense.total_spent(@expenses)
     erb( :"expenses/dates")
 end
