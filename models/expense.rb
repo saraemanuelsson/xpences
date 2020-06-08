@@ -62,6 +62,13 @@ class Expense
         return Expense.map_item(expense)
     end
 
+    def self.find_by_tag(tag)
+        sql = "SELECT * FROM expenses WHERE tag_id = $1 ORDER BY date DESC"
+        values = [tag]
+        expenses = SqlRunner.run(sql, values)
+        return Expense.map_items(expenses)
+    end
+
     def self.all()
         sql = "SELECT * FROM expenses ORDER BY date DESC"
         expenses = SqlRunner.run(sql)
