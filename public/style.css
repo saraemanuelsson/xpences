@@ -78,3 +78,9 @@ div[class=global-nav] {
 .required {
     color: red;
 }
+
+#logo {
+    float: center;
+    width: 25%;
+    height: auto;
+}
