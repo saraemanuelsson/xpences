@@ -12,6 +12,7 @@
                 <% end %>
             <% end %>
         </select>
+        <i class="required">*</i>
     </div>
 
     <div class='form-element'>
@@ -20,7 +21,9 @@
         type="date"
         name="date"
         id="date-select"
+        required
         />
+        <i class="required">*</i>
     </div>
 
     <div class='form-element'>
@@ -32,7 +35,9 @@
         step="0.01"
         name="amount"
         id="amount"
+        required
         />
+        <i class="required">*</i>
     </div>
 
     <div class="form-element">
@@ -43,10 +48,12 @@
         name="tag_id"
         id="tag-select"
         value=<%=tag.id%>
+        required
         />
         <label class="colourbox" for=<%=tag.colour%> style="background-color: <%=tag.colour%>;"><%=tag.category%></label>
         <% end %>
         <% end %>
+        <i class="required">*</i>
     </div>
 
     <input type="submit" value="Add Expense">

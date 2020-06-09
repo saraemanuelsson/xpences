@@ -44,3 +44,37 @@ label[class=colourbox] {
     color: white;
     text-align: center;
 }
+
+div[class=global-nav] {
+    float: right;
+    padding-right: 30px;
+}
+
+.icon {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+}
+
+.dropdown-content:hover {
+
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.required {
+    color: red;
+}
