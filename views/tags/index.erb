@@ -1,20 +1,18 @@
-<h1>Tags</h1>
+<h1 class="table-heading">Tags</h1>
 
-<button><a href="/tags/new">Create Tag</a></button>
+<button id="create-tag-button" class="bigger-button"><a href="/tags/new">Create Tag</a></button>
 
 <div>
-    <button><a href="/tags/all">View Deactivated</a></button>
-    <table>
-        <tr>
+    <table id="tags-table">
+        <tr class="column-headings">
             <th>Category</th>
-            <th>Colour</th>
         </tr>
         <% @tags.each do |tag|%>
-        <tr <% if tag.active == 0%> class ='deactivated'<% end %>>
-            <td><%=tag.category%></td>
-            <td style="background-color: <%=tag.colour%>; border-radius: 10px; "></td>
+        <tr class="table-rows" <% if tag.active == 0%> class ='deactivated'<% end %>>
+            <td style="background-color: <%=tag.colour%>; border-radius: 10px; color: white"><%=tag.category%></td>
             <td><button><a href="/tags/<%= tag.id %>/edit">Edit</a></button>
         <% end %>
         </tr>
     </table>
+    <button class="deactivated"><a href="/tags/all">View Deactivated</a></button>
 </div>
