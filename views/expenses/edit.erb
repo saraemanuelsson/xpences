@@ -1,7 +1,7 @@
 <h2 class="table-heading">Edit Expense</h2>
 
 <button><a href="/expenses">Back</a></button>
-<form method="post" action="/expenses/<%= @expense.id %>/edit">
+<form id="edit-expense-form" class="form" method="post" action="/expenses/<%= @expense.id %>/edit">
 
     <div class='form-element'>
         <label for="merchant-select">Merchant:</label>
@@ -36,19 +36,21 @@
         />
     </div>
 
-    <div class="form-element">
-        <label class="category_heading_edit" for="tag-select">Category:</label>
-        <% @tags.each do |tag| unless tag.active == 0 %>
-        <input id="edit<%=tag.colour%>"
-        type="radio"
-        name="tag_id"
-        id="tag-select"
-        value="<%=tag.id%>"
-        <%= "checked" if @expense.tag_id == tag.id %>
-        />
-        <label class="colourbox" for="edit<%=tag.colour%>" style="background-color: <%=tag.colour%>;"><%=tag.category%></label>
-        <% end %>
-        <% end %>
+    <div class="colour-picker">
+        <label id="category_heading_edit" for="tag-select">Category:</label>
+        <div>
+            <% @tags.each do |tag| unless tag.active == 0 %>
+            <input id="edit<%=tag.colour%>"
+            type="radio"
+            name="tag_id"
+            id="tag-select"
+            value="<%=tag.id%>"
+            <%= "checked" if @expense.tag_id == tag.id %>
+            />
+            <label class="colourbox" for="edit<%=tag.colour%>" style="background-color: <%=tag.colour%>;"><%=tag.category%></label>
+            <% end %>
+            <% end %>
+        </div>
     </div>
 
     <input type="submit" value="Save Changes">
@@ -56,7 +58,7 @@
 
 <p>To delete expense: 
     <form method="post" action="/expenses/<%=@expense.id%>/delete">
-        <input type="submit" value="Delete"/>
+        <input class="delete" type="submit" value="Delete"/>
     </form>
 </p>
 

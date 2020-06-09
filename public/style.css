@@ -198,7 +198,7 @@ button:hover {
 
 input[type=submit] {
     color: white;
-    background-color: rgb(255, 87, 86);
+    background-color: rgb(101, 221, 31);
     border-radius: 10px;
     padding: 5px 15px;
     cursor: pointer;
@@ -240,6 +240,10 @@ input[type=radio] + label[class=colourbox] {
     width: 75px;
     display: inline-block;
     padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: white;
+    text-align: center;
 }
 
 input[type=radio]:checked + label[class=colourbox] {
@@ -252,14 +256,28 @@ input[type=radio]:checked + label[class=colourbox] {
     padding: 5px;
 }
 
-label[class=colourbox] {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font: 15px;
-    color: white;
-    text-align: center;
-}
-
 .required {
-    color: red;
+    color: rgb(255, 87, 86);
 }
 
+#edit-expense-form {
+    padding-top: 30px;
+}
+
+input[class=delete] {
+    color: white;
+    background-color: rgb(255, 87, 86);
+    border-radius: 10px;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-color: black;
+    text-decoration: none;
+    width: fit-content;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.colour-picker {
+    width: 50%;
+    padding-bottom: 20px;
+}
