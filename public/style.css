@@ -134,11 +134,6 @@ table {
     text-align: center;
 }
 
-.table-edit-button {
-    background-color: none;
-
-}
-
 button {
     color: white;
     background-color: rgb(0,194,203);
@@ -148,6 +143,10 @@ button {
     border-color: black;
     text-decoration: none;
     width: 60px;
+}
+
+#top-button {
+    width: 150px;
 }
 
 input[type=submit] {

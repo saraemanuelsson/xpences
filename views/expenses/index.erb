@@ -46,7 +46,11 @@
             <td style="background-color: <%=Tag.find_by_id(expense.tag_id).colour%>; border-radius: 10px; color: white; text-align: center;"><%=Tag.find_by_id(expense.tag_id).category%></td>
             <td>£<%='%.2f' % (expense.amount.to_f / 100)%></td>
             <td><%= expense.date %></td>
-            <td class="table-edit-button"><button><a href="/expenses/<%= expense.id %>/edit">Edit</a></button>
+            <td><button><a href="/expenses/<%= expense.id %>/edit">Edit</a></button>
         <% end %>
         </tr>
     </table>
+
+    <div>
+        <button><a class="back-to-top-button" href="#top">Back to top</a></button>
+    </div>
