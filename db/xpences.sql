@@ -1,6 +1,7 @@
 DROP TABLE expenses;
 DROP TABLE tags;
 DROP TABLE merchants;
+DROP TABLE budgets;
 
 CREATE TABLE merchants (
     id SERIAL PRIMARY KEY,
@@ -13,6 +14,11 @@ CREATE TABLE tags (
     category VARCHAR(255),
     colour VARCHAR(255),
     active BIT
+);
+
+CREATE TABLE budgets (
+    id SERIAL PRIMARY KEY,
+    amount INT
 );
 
 CREATE TABLE expenses (
