@@ -4,7 +4,7 @@
     <h2 class="spent-heading">Spent This Month: £<%=@month_total%></h2>
     </aside>
 
-    <div id="filter">
+    <div class="filter">
         <form class ="form" method="post" action="/expenses/dates">
         <label for="start-date">Start date:</label>
         <input 
@@ -52,5 +52,5 @@
     </table>
 
     <div>
-        <button><a class="back-to-top-button" href="#top">Back to top</a></button>
+        <button id="top-button"><a class="back-to-top-button" href="#top">Back to top</a></button>
     </div>

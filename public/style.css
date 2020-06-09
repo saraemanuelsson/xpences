@@ -90,6 +90,7 @@ p {
     font-family: monospace;
     text-decoration: underline rgb(0,194,203);
     font-size: 400%;
+    background-color: rgb(255,255,255,0.7);
 }
 
 .spent-heading {
@@ -98,7 +99,7 @@ p {
     padding-top: 30px;
 }
 
-#filter {
+.filter {
     padding-top: 30px;
 }
 
@@ -147,6 +148,7 @@ button {
 
 #top-button {
     width: 150px;
+    font-size: 100%;
 }
 
 input[type=submit] {

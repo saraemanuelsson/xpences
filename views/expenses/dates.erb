@@ -1,11 +1,11 @@
-<h1>Expenses <%=@start_date%> to <%= @end_date %></h1>
+<h1 class="table-heading">Expenses <%=@start_date%> to <%= @end_date %></h1>
 
     <aside>
-    <h2>Spent <% if @criteria != "all"%>On <%=@criteria.capitalize%><%end%> This Period: £<%=@period_total%></h2>
+    <h2 class="spent-heading">Spent <% if @criteria != "all"%>On <%=@criteria.capitalize%><%end%> This Period: £<%=@period_total%></h2>
     </aside>
 
-    <div>
-        <form method="post" action="/expenses/dates">
+    <div class="filter">
+        <form class ="form" method="post" action="/expenses/dates">
         <label for="start-date">Start date:</label>
         <input 
         type="date" 
@@ -37,14 +37,14 @@
     </div>
 
     <table>
-        <tr>
+        <tr class="column-headings">
             <th>Merchant</th>
             <th>Category</th>
             <th>Amount</th>
             <th>Date</th>
         </tr>
         <% @expenses.each do |expense| %>
-        <tr>
+        <tr class="table-rows">
             <td><%=Merchant.find_by_id(expense.merchant_id).name%></td>
             <td style="background-color: <%=Tag.find_by_id(expense.tag_id).colour%>; border-radius: 10px; color: white; text-align: center;"><%=Tag.find_by_id(expense.tag_id).category%></td>
             <td>£<%='%.2f' % (expense.amount.to_f / 100)%></td>
@@ -53,3 +53,7 @@
         <% end %>
         </tr>
     </table>
+
+    <div>
+        <button id="top-button"><a class="back-to-top-button" href="#top">Back to top</a></button>
+    </div>
