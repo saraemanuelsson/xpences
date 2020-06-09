@@ -2,10 +2,16 @@ require('pry')
 require_relative('../models/merchant')
 require_relative('../models/tag')
 require_relative('../models/expense')
+require_relative('../models/budget')
 
 Expense.delete_all()
 Merchant.delete_all()
 Tag.delete_all()
+Budget.delete_all()
+
+budget = Budget.new('amount' => 110000)
+
+budget.save()
 
 tesco = Merchant.new('name' => 'Tesco', "active" => 1)
 chanter = Merchant.new('name' => 'The Chanter', "active" => 1)
