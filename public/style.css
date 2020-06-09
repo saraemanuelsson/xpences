@@ -1,10 +1,80 @@
-
 html {
     background: url("110291-achievement_bar_business_chart_coin_coins_diagram.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+#logo {
+    float: center;
+    width: 30%;
+    height: auto;
+}
+
+#menu-icon {
+    padding-right: 20px;
+}
+
+#settings-icon {
+    padding-top: 3px;
+}
+
+.icon {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown {
+    float: right;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+}
+
+.dropdown-content:hover {
+
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#home-page {
+    padding-top: 3%;
+    padding-inline-start: 3%;
+    width: 70%;
+    height: 30%;
+    font-size: 120%;
+    font-family: monospace;
+    text-align: center;
+}
+
+button {
+    color: white;
+    background-color: rgb(20, 201, 201);
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+    border-color: black;
+}
+
+#view-button {
+    float: right;
+    width: 30%;
+    padding-right: 12%;
+}
+
+#add-button {
+    float: left;
+    width: 30%;
+    padding-left: 15%;
 }
 
 input[type=radio] {
@@ -45,42 +115,9 @@ label[class=colourbox] {
     text-align: center;
 }
 
-div[class=global-nav] {
-    float: right;
-    padding-right: 30px;
-}
 
-.icon {
-    cursor: pointer;
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-}
-
-.dropdown-content:hover {
-
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 
 .required {
     color: red;
 }
 
-#logo {
-    float: center;
-    width: 25%;
-    height: auto;
-}

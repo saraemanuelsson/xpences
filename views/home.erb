@@ -1,6 +1,11 @@
-<h1 id='Welcome text'>Hey <%=@user['first_name']%>, what do you want to do today?</h1>
-
-    <nav id="Home page">
-        <a href='/expenses/add'>Add Expense</a>
-        <a href='/expenses'>View Expenses</a>
+<div id="home-page">
+    <h1>Hey <%=@user['first_name']%>, what do you want to do today?</h1>
+    <nav>
+        <a href='/expenses/add'>
+            <img id="add-button" src="/add-expense.png" alt="Add Expense">
+        </a>
+        <a href='/expenses'>
+            <img id="view-button" src="/view_expenses.png" alt="View Expenses">
+        </a>
     </nav>
+</div>
