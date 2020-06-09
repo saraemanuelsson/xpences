@@ -6,6 +6,10 @@ html {
     background-size: cover;
 }
 
+header {
+    padding-right: 3%;
+}
+
 #logo {
     float: center;
     width: 30%;
@@ -13,11 +17,12 @@ html {
 }
 
 #menu-icon {
-    padding-right: 20px;
+    padding-right: 20%;
 }
 
 #settings-icon {
-    padding-top: 3px;
+    padding-top: 5px;
+    padding-right: 5px;
 }
 
 .icon {
@@ -33,13 +38,18 @@ html {
 }
 
 .dropdown-content {
+    font-family: monospace;
+    text-align: center;
+    font-size: 150%;
+    color: black;
     display: none;
     position: absolute;
-    background-color: white;
+    background-color: rgb(255,255,255,0.7);
+
 }
 
-.dropdown-content:hover {
-
+a {
+    color: inherit;
 }
 
 .dropdown:hover .dropdown-content {
