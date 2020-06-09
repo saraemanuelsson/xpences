@@ -145,37 +145,24 @@ button {
     color: white;
     background-color: rgb(0,194,203);
     border-radius: 10px;
-    padding: 8px;
+    padding: 5px 15px;
     cursor: pointer;
     border-color: black;
     text-decoration: none;
-    width: 60px;
+    width: fit-content;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
 }
 
 .bigger-button {
-    color: white;
-    background-color: rgb(0,194,203);
-    border-radius: 10px;
-    padding: 8px;
-    cursor: pointer;
-    border-color: black;
-    text-decoration: none;
-    width: 150px;
-    font-size: 100%;
+    font-size: 25px;
 }
 
 .deactivated {
     color: white;
     background-color: rgb(255, 87, 86);
-    border-radius: 10px;
-    padding: 6px;
-    cursor: pointer;
-    border-color: black;
-    text-decoration: none;
-    width: 120px;
-    font-size: 80%;
-    float: left;
+    font-size: 12px;
+
 }
 
 #create-merchant-button {
@@ -213,10 +200,12 @@ input[type=submit] {
     color: white;
     background-color: rgb(255, 87, 86);
     border-radius: 10px;
-    padding: 8px;
+    padding: 5px 15px;
     cursor: pointer;
     border-color: black;
-    width: 60px;
+    width: fit-content;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 input[type=submit]:hover {
@@ -228,11 +217,19 @@ input[type=radio] {
     display: none;
 }
 
+.form-element {
+    padding-bottom: 10px;
+}
+
 #category_heading {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font: 50px;
     color: black;
     text-align: top;
+}
+
+#merchant-edit-form {
+    padding-top: 30px;
 }
 
 input[type=radio] + label[class=colourbox] {
