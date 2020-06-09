@@ -1,19 +1,21 @@
-<h1>Merchants</h1>
+<h1 class="table-heading">Merchants</h1>
 
-<button><a href="/merchants/new">Create Merchant</a></button>
+<div id="merchant-padding">
+    <button id="create-merchant-button" class="bigger-button"><a href="/merchants/new">Create Merchant</a></button>
+</div>
 
 
-<div>
-    <button><a href="/merchants/all">View Deactivated</a></button>
-    <table>
-        <tr>
+<div id="merchant-section">
+    <table id="merchant-table">
+        <tr class="column-headings">
             <th>Name</th>
         </tr>
         <% @merchants.each do |merchant|%>
-        <tr <% if merchant.active == 0%> class='deactived'<% end %>>
+        <tr class="table-rows"<% if merchant.active == 0%> class='deactived'<% end %>>
             <td><%=merchant.name%></td>
             <td><button><a href="/merchants/<%= merchant.id %>/edit">Edit</a></button>
         <% end %>
         </tr>
     </table>
+    <button class="deactivated"><a href="/merchants/all">View Deactivated</a></button>
 </div>

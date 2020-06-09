@@ -4,6 +4,7 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    padding-left: 3%;
 }
 
 header {
@@ -64,6 +65,11 @@ p {
     display: block;
 }
 
+small {
+    position: fixed;
+    bottom: 0px;
+}
+
 #home-page {
     padding-top: 3%;
     padding-inline-start: 3%;
@@ -91,6 +97,7 @@ p {
     text-decoration: underline rgb(0,194,203);
     font-size: 400%;
     background-color: rgb(255,255,255,0.7);
+    width: fit-content;
 }
 
 .spent-heading {
@@ -120,19 +127,18 @@ table {
     width: 70%;
     padding-top: 20px;
     background-color: rgb(255,255,255,0.7);
+    font-family: monospace;
+    text-align: center;
 }
 
 .column-headings {
-    font-family: monospace;
     font-size: 180%;
     text-decoration: underline black;
     padding-bottom: 20px;
 }
 
 .table-rows {
-    font-family: monospace;
     font-size: 150%;
-    text-align: center;
 }
 
 button {
@@ -144,11 +150,63 @@ button {
     border-color: black;
     text-decoration: none;
     width: 60px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#top-button {
+.bigger-button {
+    color: white;
+    background-color: rgb(0,194,203);
+    border-radius: 10px;
+    padding: 8px;
+    cursor: pointer;
+    border-color: black;
+    text-decoration: none;
     width: 150px;
     font-size: 100%;
+}
+
+.deactivated {
+    color: white;
+    background-color: rgb(255, 87, 86);
+    border-radius: 10px;
+    padding: 6px;
+    cursor: pointer;
+    border-color: black;
+    text-decoration: none;
+    width: 120px;
+    font-size: 80%;
+    float: left;
+}
+
+#create-merchant-button {
+    background-color: rgb(101, 221, 31);
+}
+
+button:hover {
+    background-color: black;
+}
+
+#create-merchant-button:hover {
+    background-color: black;
+}
+
+#merchant-padding {
+    padding-top: 25px;
+}
+
+#merchant-section {
+    width: 40%;
+    padding-top: 20px;
+}
+
+#merchant-table {
+    padding-top: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+#merchant-new-form {
+    padding-top: 60px;
 }
 
 input[type=submit] {
@@ -160,6 +218,11 @@ input[type=submit] {
     border-color: black;
     width: 60px;
 }
+
+input[type=submit]:hover {
+    background-color: black;
+}
+
 
 input[type=radio] {
     display: none;
