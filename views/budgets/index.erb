@@ -1,0 +1,43 @@
+<div>
+    <h1 id="budget-heading" class="table-heading">Budget</h1>
+
+    <div class=budget-pics>
+        <% if @amount_spent < @target %>
+        <img src="/within_budget.png" alt="Great Job!">
+        <% else%>
+        <img src="/over_budget.png" alt="Shame on you!">
+        <% end %>
+    </div>
+</div>
+
+<button><a href="/">Back</a></button>
+
+<h2 class="spent-heading">Your spending is currently <% if @amount_spent < @target %>on track! <% else%> below budget... <% end %> </h2>
+
+
+
+<table id="budget-table" class="spent-heading">
+    <tr>
+        <td>Budget for <%=Date::MONTHNAMES[Date.today.month]%>:</td>
+        <td>£<%='%.2f' % (@amount)%></td>
+        <td><button id="set-budget-button"><a href="/budget/<%= @budget.id %>/edit">Set New Budget</a></button></td>
+    </tr>
+    <tr>
+        <td>Spent this month:</td>
+        <td>£<%='%.2f' % @amount_spent %></td>
+    </tr>
+    <tr id="total">
+        <td>Budget remaining:</td>
+        <td>£<%='%.2f' % @budget_remaining%></td>
+    </tr>
+</table>
+
+<div class="budget-bar">
+    <div id="red" style="width: <%=@percentage_spent%>%;">
+        <p>Spent</p>
+    </div>
+    <div id="green" style="width: <%=@percentage_remaining%>%;">
+        <p>Remaining</p>
+    </div>
+</div>
+

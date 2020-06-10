@@ -9,7 +9,7 @@ Merchant.delete_all()
 Tag.delete_all()
 Budget.delete_all()
 
-budget = Budget.new('amount' => 110000)
+budget = Budget.new('amount' => 1100.00)
 
 budget.save()
 

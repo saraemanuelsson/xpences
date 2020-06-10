@@ -9,15 +9,27 @@ require_relative('../models/budget.rb')
 also_reload('../models/*')
 
 get '/budget' do
-    budget = Budget.current_budget
-    @amount = budget.amount.to_f / 100
+    @budget = Budget.current_budget
+    @amount = @budget.amount.to_f / 100
     end_date = Date.today
     start_date = Date.new(end_date.year, end_date.month, 1)
     expenses = Expense.find_expenses_for_given_period(start_date, end_date)
-    spent_this_month = Expense.total_spent(expenses)
-    @amount_spent = spent_this_month
+    @amount_spent = Expense.total_spent(expenses)
     @budget_remaining = @amount - @amount_spent
-    @percentage_spent = budget.percentage(@amount_spent)
-    @percentage_remaining = budget.percentage(@budget_remaining)
+    @percentage_spent = @budget.percentage(@amount_spent)
+    @percentage_remaining = @budget.percentage(@budget_remaining)
+    days_in_month = (Date.new(end_date.year, end_date.month, -1)).day
+    @target = (@budget.target_for_given_date(days_in_month, end_date.day)) / 100
     erb( :"budgets/index" )
+end
+
+get '/budget/:id/edit' do
+    @budget = Budget.find_by_id(params[:id])
+    erb( :"budgets/edit" )
+end
+
+post '/budget/:id/edit' do
+    budget_to_update = Budget.new(params)
+    budget_to_update.update()
+    redirect( '/budget')
 end

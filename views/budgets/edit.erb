@@ -1,0 +1,20 @@
+<h2 class="table-heading">Set Budget</h2>
+
+<button><a href="/budget">Back</a></button>
+<form id="budget-edit-form" class="form" method="post" action="/budget/<%=@budget.id %>/edit">
+
+    <div class="form-element">
+        <label for="amount-select">Amount:</label>
+        <input
+        type="number"
+        min="0"
+        name="amount"
+        id="amount-select"
+        value=<%='%.2f' % (@budget.amount.to_f / 100) %>
+        step="0.01"
+        />
+    </div>
+    
+    <input type="submit" value="Save Changes">
+
+</form>
