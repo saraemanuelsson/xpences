@@ -8,8 +8,8 @@
             <th>Category</th>
         </tr>
         <% @tags.each do |tag|%>
-        <tr class="table-rows" <% if tag.active == 0%> class ='deactivated'<% end %>>
-            <td style="background-color: <%=tag.colour%>; border-radius: 10px; color: white"><%=tag.category%></td>
+        <tr class="table-rows">
+            <td style="background-color: <%=tag.colour%>; border-radius: 10px; color: white"><%=tag.category%><% if tag.active == 0%> - Inactive<% end %></td>
             <td><button><a href="/tags/<%= tag.id %>/edit">Edit</a></button>
         <% end %>
         </tr>

@@ -11,8 +11,8 @@
             <th>Name</th>
         </tr>
         <% @merchants.each do |merchant|%>
-        <tr class="table-rows"<% if merchant.active == 0%> class='deactived'<% end %>>
-            <td><%=merchant.name%></td>
+        <tr class="table-rows">
+            <td <% if merchant.active == 0%> style="background-color: rgb(0,0,0,0.3);"<% end %>><%=merchant.name%></td>
             <td><button><a href="/merchants/<%= merchant.id %>/edit">Edit</a></button>
         <% end %>
         </tr>
