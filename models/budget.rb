@@ -29,6 +29,13 @@ class Budget
         SqlRunner.run(sql, values)
     end
 
+    def self.current_budget()
+        sql = "SELECT * FROM budgets"
+        budget_data = SqlRunner.run(sql)[0]
+        budget = Budget.new(budget_data)
+        return budget
+    end
+
     def self.delete_all()
         sql = "DELETE FROM budgets"
         SqlRunner.run(sql)
