@@ -304,10 +304,36 @@ input[class=delete] {
 #budget-table {
     text-align: left;
     width: 40%;
+    padding-bottom: 160px;
 }
 
 #total {
     border-top: black;
     text-decoration: rgb(0,194,203) underline;
     font-weight: bold;
+}
+
+.budget-bar {
+    width: 90%;
+    height: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 25px;
+}
+
+#red {
+    background-color: rgb(255, 87, 86);
+    float: left;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#green {
+    background-color: rgb(101, 221, 31);
+    text-align: right;
+    float: right;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }

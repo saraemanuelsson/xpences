@@ -17,5 +17,7 @@ get '/budget' do
     spent_this_month = Expense.total_spent(expenses)
     @amount_spent = spent_this_month
     @budget_remaining = @amount - @amount_spent
+    @percentage_spent = budget.percentage(@amount_spent)
+    @percentage_remaining = budget.percentage(@budget_remaining)
     erb( :"budgets/index" )
 end

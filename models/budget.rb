@@ -30,6 +30,11 @@ class Budget
         SqlRunner.run(sql, values)
     end
 
+    def percentage(amount)
+        result = (amount * 100) / @amount.to_f
+        return result * 100
+    end
+
     def cent_amount_to_full(amount)
         full_amount = amount.to_f / 100
         return full_amount
