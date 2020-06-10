@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('./tag')
 
 class Expense
 
@@ -79,6 +80,17 @@ class Expense
     def self.delete_all()
         sql = "DELETE FROM expenses"
         SqlRunner.run(sql)
+    end
+
+    def self.get_expenses(expenses_for_period, criteria)
+        filtered_expenses = []
+        if criteria != "all"
+            expenses_with_tag = Expense.expenses_with_given_tag(expenses_for_period, Tag.find_by_category(criteria).id)
+            expenses_with_tag.each {|expense| filtered_expenses.push(expense)}   
+        else
+            expenses_for_period.each {|expense| filtered_expenses.push(expense)}
+        end
+        return filtered_expenses 
     end
 
     def self.map_items(expense_data)

@@ -62,13 +62,7 @@ get "/expenses/dates/:start_date/:end_date/:criteria" do
     @criteria = params[:criteria]
     @tags = Tag.all()
     expenses_for_period = Expense.find_expenses_for_given_period(@start_date, @end_date)
-    @expenses = []
-        if @criteria != "all"
-            expenses_with_tag = Expense.expenses_with_given_tag(expenses_for_period, Tag.find_by_category(@criteria).id)
-            expenses_with_tag.each {|expense| @expenses.push(expense)}   
-        else
-            expenses_for_period.each {|expense| @expenses.push(expense)}
-        end
+    @expenses = Expense.get_expenses(expenses_for_period, @criteria)
     @period_total = Expense.total_spent(@expenses)
     erb( :"expenses/dates")
 end
