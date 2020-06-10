@@ -19,6 +19,7 @@ class Budget
 
     def update()
         sql = "UPDATE budgets SET amount = $1 WHERE id = $2"
+        @amount = (@amount.to_f * 100.00).to_i
         values = [@amount, @id]
         SqlRunner.run(sql, values)
     end
@@ -27,6 +28,15 @@ class Budget
         sql = "DELETE FROM budgets WHERE id = $1"
         values = [@id]
         SqlRunner.run(sql, values)
+    end
+
+    def cent_amount_to_full(amount)
+        full_amount = amount.to_f / 100
+        return full_amount
+    end
+
+    def budget_remaining(amount_spent)
+        return @amount -= amount_spent
     end
 
     def self.current_budget()

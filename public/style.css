@@ -300,3 +300,14 @@ input[class=delete] {
     width: 50%;
     padding-bottom: 20px;
 }
+
+#budget-table {
+    text-align: left;
+    width: 40%;
+}
+
+#total {
+    border-top: black;
+    text-decoration: rgb(0,194,203) underline;
+    font-weight: bold;
+}
