@@ -73,7 +73,6 @@ small {
 
 #home-page {
     padding-top: 3%;
-    padding-inline-start: 3%;
     width: 70%;
     height: 30%;
     font-size: 150%;
@@ -81,16 +80,21 @@ small {
     text-align: center;
 }
 
+.home-page-nav {
+    float: left;
+    padding-top: 10px;
+}
+
 #view-button {
-    float: right;
-    width: 30%;
-    padding-right: 12%;
+    width: 25%;
 }
 
 #add-button {
-    float: left;
-    width: 30%;
-    padding-left: 15%;
+    width: 25%;
+}
+
+#budget-button {
+    width: 25%;
 }
 
 .table-heading {

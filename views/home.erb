@@ -1,11 +1,14 @@
 <div id="home-page">
     <h1>Hey <%=@user['first_name']%>, what do you want to do today?</h1>
-    <nav>
+    <nav class="home-page-nav">
         <a href='/expenses/add'>
             <img id="add-button" src="/add-expense.png" alt="Add Expense">
         </a>
         <a href='/expenses'>
             <img id="view-button" src="/view_expenses.png" alt="View Expenses">
+        </a>
+        <a href='/budget'>
+            <img id="budget-button" src="/budget.png" alt="View Budget">
         </a>
     </nav>
 </div>
