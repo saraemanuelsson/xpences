@@ -38,7 +38,8 @@ class Budget
     end
 
     def budget_remaining(amount_spent)
-        return @amount -= amount_spent
+        result = (@amount.to_f / 100) - amount_spent
+        return result
     end
 
     def target_for_given_date(date)

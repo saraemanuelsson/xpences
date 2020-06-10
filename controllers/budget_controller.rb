@@ -12,10 +12,10 @@ get '/budget' do
     @budget = Budget.current_budget
     @amount = @budget.amount.to_f / 100
     current_date = Date.today
-    start_date = Date.new(current_date.year, current_date.month, 1)
-    expenses = Expense.find_expenses_for_given_period(start_date, current_date)
+    first_date_of_month = Date.new(current_date.year, current_date.month, 1)
+    expenses = Expense.find_expenses_for_given_period(first_date_of_month, current_date)
     @amount_spent = Expense.total_spent(expenses)
-    @budget_remaining = @amount - @amount_spent
+    @budget_remaining = @budget.budget_remaining(@amount_spent)
     @percentage_spent = @budget.percentage(@amount_spent)
     @percentage_remaining = @budget.percentage(@budget_remaining)
     @target = @budget.target_for_given_date(current_date)
