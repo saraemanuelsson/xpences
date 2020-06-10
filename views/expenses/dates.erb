@@ -1,7 +1,7 @@
 <h1 class="table-heading">Expenses <%=@start_date%> to <%= @end_date %></h1>
 
     <aside>
-    <h2 class="spent-heading">Spent <% if @criteria != "all"%>On <%=@criteria.capitalize%><%end%> This Period: £<%=@period_total%></h2>
+    <h2 class="spent-heading">Spent <% if @criteria != "all"%>On <%=@criteria.capitalize%><%end%> This Period: £<%='%.2f' % @period_total%></h2>
     </aside>
 
     <div class="filter">

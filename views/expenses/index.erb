@@ -1,7 +1,7 @@
 <h1 class="table-heading">Expenses <%=Date::MONTHNAMES[Date.today.month]%></h1>
 
     <aside>
-    <h2 class="spent-heading">Spent This Month: £<%=@month_total%></h2>
+    <h2 class="spent-heading">Spent This Month: £<%='%.2f' % @month_total%></h2>
     </aside>
 
     <div class="filter">

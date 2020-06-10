@@ -55,19 +55,19 @@ class Expense
         return Expense.map_items(expenses_for_period)
     end
 
-    def self.find_by_id(id)
-        sql = "SELECT * FROM expenses WHERE id = $1"
-        values = [id]
-        expense = SqlRunner.run(sql, values)
-        return Expense.map_item(expense)
-    end
-
     def self.expenses_with_given_tag(expenses, tag)
         expenses_with_tag = []
         expenses.each do |expense|
             expenses_with_tag.push(expense) if expense.tag_id == tag
         end
         return expenses_with_tag
+    end
+
+    def self.find_by_id(id)
+        sql = "SELECT * FROM expenses WHERE id = $1"
+        values = [id]
+        expense = SqlRunner.run(sql, values)
+        return Expense.map_item(expense)
     end
 
     def self.all()

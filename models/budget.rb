@@ -20,7 +20,7 @@ class Budget
     end
 
     def update()
-        sql = "UPDATE budgets SET (amount) = ($1) WHERE (id) = ($2)"
+        sql = "UPDATE budgets SET amount = $1 WHERE id = $2"
         @amount = (@amount.to_f * 100.00).to_i
         values = [@amount, @id]
         SqlRunner.run(sql, values)
@@ -37,19 +37,15 @@ class Budget
         return result * 100
     end
 
-    def cent_amount_to_full(amount)
-        full_amount = amount.to_f / 100
-        return full_amount
-    end
-
     def budget_remaining(amount_spent)
         return @amount -= amount_spent
     end
 
-    def target_for_given_date(days_in_month, date)
+    def target_for_given_date(date)
+        days_in_month = (Date.new(date.year, date.month, -1)).day
         daily_target = @amount.to_f / days_in_month
-        target = daily_target * date
-        return target
+        target_for_date = daily_target * date.day
+        return target_for_date
     end
 
     def self.current_budget()
