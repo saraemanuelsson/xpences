@@ -46,7 +46,7 @@ class Budget
         days_in_month = (Date.new(date.year, date.month, -1)).day
         daily_target = @amount.to_f / days_in_month
         target_for_date = daily_target * date.day
-        return target_for_date
+        return target_for_date.to_i / 100
     end
 
     def self.current_budget()
